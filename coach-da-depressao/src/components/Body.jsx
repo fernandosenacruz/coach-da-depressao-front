@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { React, useEffect, useState } from 'react';
 import CardImage from './CardImage';
-import axios from 'axios';
+import api from '../services/api';
 
 export default function Body () {
   const [desmotivation, setDesmotivation] = useState({
@@ -11,7 +11,7 @@ export default function Body () {
 
   useEffect(() => {
     async function getDesmotivation () {
-      const { data } = await axios.get("http://localhost:3001/");
+      const { data } = await api.get('/');
       setDesmotivation(data);
     }
     getDesmotivation();
